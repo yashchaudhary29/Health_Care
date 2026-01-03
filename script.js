@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 3. Display Comments (GET)
     async function displayComments() {
         try {
-            const response = await fetch('https://health-care-uda1.onrender.com');
+            const response = await fetch('https://health-care-uda1.onrender.com/api/comments');
             const comments = await response.json();
             commentsList.innerHTML = ''; 
             
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const textInput = document.getElementById('comment-text').value;
 
         try {
-            const response = await fetch('http://localhost:5000/api/comments', {
+            const response = await fetch('https://health-care-uda1.onrender.com/api/comments', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name: nameInput, text: textInput })
@@ -86,3 +86,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 });
+
