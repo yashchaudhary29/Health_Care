@@ -10,8 +10,7 @@ app.use(express.json());
 
 // --- YAHAN APNA LINK PASTE KAREIN ---
 // <db_password> ko hata kar apna password likhein
-const mongoURI ="mongodb+srv://yc9956434_db_user:yash8545015504@cluster0.xdpdpbi.mongodb.net/lifestyleDB?retryWrites=true&w=majority&appName=Cluster0";
-
+const mongoURI =process.env.MONGO_URI;
 // MongoDB Atlas se connect karna
 mongoose.connect(mongoURI)
     .then(() => console.log("✅ MongoDB Atlas Connected Successfully!"))
@@ -56,4 +55,5 @@ const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
 
