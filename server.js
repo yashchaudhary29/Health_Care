@@ -8,6 +8,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const path = require('path'); // Ye line sabse upar (express ke saath) likhein
+
+// Ye line server ko batati hai ki bahar se mangi gayi files (html, xml, css) kahan hain
+app.use(express.static(__dirname)); 
+
+// Agar file root mein hai, toh ye route pakka kaam karega
+app.get('/sitemap.xml', (req, res) => {
+    res.sendFile(path.join(__dirname, 'sitemap.xml'));
+});
 // --- YAHAN APNA LINK PASTE KAREIN ---
 // <db_password> ko hata kar apna password likhein
 const mongoURI =process.env.MONGO_URI;
@@ -55,5 +64,6 @@ const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
 
 
