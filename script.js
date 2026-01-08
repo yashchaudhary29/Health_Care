@@ -26,7 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
             <textarea id="comment-text" placeholder="Share your thoughts!" required></textarea>
             <button type="submit">Post Comment</button>
         </form>
-        <div id="comments-list"></div>
+        <button id="toggle-comments">Show Comments</button>
+        <div id="comments-list" style="display: none;"></div>
     `;
     conclusion.appendChild(commentSection);
 
@@ -86,4 +87,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 });
+
+const toggleBtn = document.getElementById('toggle-comments');
+const commentsList = document.getElementById('comments-list');
+
+toggleBtn.addEventListener('click', () => {
+    if (commentsList.style.display === 'none') {
+        commentsList.style.display = 'block';
+        toggleBtn.innerText = 'Hide Comments';
+    } else {
+        commentsList.style.display = 'none';
+        toggleBtn.innerText = 'Show Comments';
+    }
+});
+
 
